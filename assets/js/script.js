@@ -30,8 +30,6 @@ var getWeatherRepo = function(lat,lon,name) {
 }
 
 var displayWeather = function(data,name){
-//  var currentWeather = document.createElement("div")
-//  currentWeather.classList = "border border-primary w-25 p-3 "
  var cityNameH2 = document.createElement("h2");
  cityNameH2.textContent = name;
  var temperaturePEl = document.createElement("p");
@@ -40,16 +38,34 @@ var displayWeather = function(data,name){
  weatherImg.src = "http://openweathermap.org/img/wn/" +data.current.weather[0].icon + ".png" 
  var humidityEl = document.createElement("p")
  humidityEl.textContent ="humidity: " + data.current.humidity +"%";
- var uvEl = document.createElement("p");
- uvEl.textContent = "UV Index: " + data.current.uvi;
+var uvEl = document.createElement("p");
+uvEl.textContent = "UV Index: " + data.current.uvi;
+ if(data.current.uvi >= 3.5 ) {
+      uvEl.classList ="w-25 p-3 mb-2 bg-success text-white rounded"
+ } else if (data.current.uvi >=5.5) {
+    uvEl.classList ="w-25 p-3 mb-2 bg-warning text-white rounded"
+ } else {
+    uvEl.classList ="w-25 p-3 mb-2 bg-danger text-white rounded"
+ }
  var windspeedEl = document.createElement("p");
  windspeedEl.textContent = "Windspeed:" + data.current.wind_speed + "MPH";
  var dateEl = document.createElement("h3")
  dateEl.textContent = moment.unix(data.current.dt).format('MM-DD-YYYY');
 
 
- document.querySelector("#displayWheather").append(cityNameH2,dateEl ,weatherImg ,temperaturePEl,humidityEl,uvEl,windspeedEl)
-}
+ document.querySelector("#displayWheather").append(cityNameH2,dateEl ,weatherImg ,temperaturePEl,humidityEl,uvEl,windspeedEl);
+ 
+};
+
+// var displayForecast = function (daily) {
+//  for(var i = 0; i < daily.length; i++) {
+
+//  }
+    
+ 
+ 
+//  document.querySelector("#weatherforecast").append(weatherForecast)
+// }
 
 
 function apiCall() {
