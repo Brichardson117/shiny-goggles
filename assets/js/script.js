@@ -30,15 +30,25 @@ var getWeatherRepo = function(lat,lon,name) {
 }
 
 var displayWeather = function(data,name){
+//  var currentWeather = document.createElement("div")
+//  currentWeather.classList = "border border-primary w-25 p-3 "
  var cityNameH2 = document.createElement("h2");
  cityNameH2.textContent = name;
  var temperaturePEl = document.createElement("p");
- temperaturePEl.textContent = "Temp: " + data.current.temp;
+ temperaturePEl.textContent = "Temp: " + data.current.temp + " ˚F";
  var weatherImg = document.createElement("img");
  weatherImg.src = "http://openweathermap.org/img/wn/" +data.current.weather[0].icon + ".png" 
+ var humidityEl = document.createElement("p")
+ humidityEl.textContent ="humidity: " + data.current.humidity +"%";
+ var uvEl = document.createElement("p");
+ uvEl.textContent = "UV Index: " + data.current.uvi;
+ var windspeedEl = document.createElement("p");
+ windspeedEl.textContent = "Windspeed:" + data.current.wind_speed + "MPH";
+ var dateEl = document.createElement("h3")
+ dateEl.textContent = moment.unix(data.current.dt).format('MM-DD-YYYY');
 
 
- document.querySelector("#displayWheather").append(cityNameH2, temperaturePEl,weatherImg)
+ document.querySelector("#displayWheather").append(cityNameH2,dateEl ,weatherImg ,temperaturePEl,humidityEl,uvEl,windspeedEl)
 }
 
 
