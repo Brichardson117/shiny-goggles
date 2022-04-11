@@ -40,7 +40,7 @@ var displayWeather = function(data,name){
  humidityEl.textContent ="humidity: " + data.current.humidity +"%";
 var uvEl = document.createElement("p");
 uvEl.textContent = "UV Index: " + data.current.uvi;
- if(data.current.uvi >= 3.5 ) {
+ if(data.current.uvi >= 3.5 || data.current.uvi === 0 ) {
       uvEl.classList ="w-25 p-3 mb-2 bg-success text-white rounded"
  } else if (data.current.uvi >=5.5) {
     uvEl.classList ="w-25 p-3 mb-2 bg-warning text-white rounded"
