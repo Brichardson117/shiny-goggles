@@ -1,1 +1,5 @@
 # shiny-goggles
+For this project I was tasked in creating a weather dashboard. I first started with the html, creating the basic layout of the page using bootstrap. The n in the javascript I started with the search function for the search bar with a conditional value to make sure the user is notifief if they type in an invalid locatin and a event listener to avoid refreshing of the page once the search is button is clicked. then I moved on to the APIs , one to get the weather and the geocode git the lat and lon translated to locations and the locations name. 
+Following that is the display weather function where i created and dynamically added the nam, uv index, temperature, wind speed, etc to the page. along with a conditional statment for the uv index to determine if the index was moderate, dangerous, or normal
+<img width="1440" alt="Screen Shot 2022-04-11 at 5 20 54 PM" src="https://user-images.githubusercontent.com/97998857/162843268-a780b7e0-f532-4a7f-a4f0-09f763a09475.png">
+https://brichardson117.github.io/shiny-goggles/
